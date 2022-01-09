@@ -10,6 +10,8 @@ Make a new folder (with the same name as the branch) and put all relevant files 
 
 **How this works:**
 
+code is in project.py, data is in data folder
+
 Libraries: pandas, flask, sqlalchemy, polygon:
 
 Database is in PgAdmin4.
