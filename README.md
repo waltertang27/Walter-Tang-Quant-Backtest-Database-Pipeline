@@ -29,7 +29,7 @@ So in Postman, I run the POST method (using url + /list), which adds the informa
 Note: Needs to have body param in raw JSON format.
 ![image](https://user-images.githubusercontent.com/90427972/148665723-056fa536-4baa-4512-8047-2d14d2013801.png)
 
-**Webserver get**
+**Webserver get. NOTE: To access the other database, change the path in project.py**
 So when I run GET, you can see that it displays the listing that I just added.
 
 ![image](https://user-images.githubusercontent.com/90427972/148665756-9c63bf12-845e-4dc8-b707-0248e7b26738.png)
