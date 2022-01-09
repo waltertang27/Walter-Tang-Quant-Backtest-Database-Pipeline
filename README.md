@@ -1,12 +1,6 @@
-# Quant Assessments
+**How to use**
 
-## For applicants
-Please fork this repository and clone the specific branch we have specified for your assessment to start working. The prompt will be contained within. Once you have finished, we will have a way for you to submit your work (most likely google form) where you can send us your git repo. 
-
-## For contributors
-Please make sure to work on a new branch. Each new branch will be for a different assessment and name them accordingly, starting with the tech stack and then the implementation details.
-
-Make a new folder (with the same name as the branch) and put all relevant files in the folder. Checkout the template for an outline of what it should look like.
+Run project.py. It should collect data (APPL.csv) in a Data folder. You can access database with PgAdmin4 and webserver using Postman. URL is generated when project.py is run. 
 
 **How this works:**
 
@@ -23,7 +17,7 @@ I first get the data from Polygon and then write it into a CSV file. I then use 
 
 For the webserver, I connected Flask with a separate database (can add to previous database by changing path). I can then post/get values into that database.
 
-So in Postman, I run the POST method (using url + /list), which adds the information that I entered into the new database.
+
 
 **URL generation**
 generating the URL when I run the code
@@ -31,7 +25,8 @@ generating the URL when I run the code
 
 
 **Webserver post**
-adding values into database using POST method. Note: Needs to have body param in raw JSON format.
+So in Postman, I run the POST method (using url + /list), which adds the information that I entered into the new database.
+Note: Needs to have body param in raw JSON format.
 ![image](https://user-images.githubusercontent.com/90427972/148665723-056fa536-4baa-4512-8047-2d14d2013801.png)
 
 **Webserver get**
