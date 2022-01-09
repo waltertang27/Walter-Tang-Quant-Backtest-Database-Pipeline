@@ -7,3 +7,11 @@ Please fork this repository and clone the specific branch we have specified for 
 Please make sure to work on a new branch. Each new branch will be for a different assessment and name them accordingly, starting with the tech stack and then the implementation details.
 
 Make a new folder (with the same name as the branch) and put all relevant files in the folder. Checkout the template for an outline of what it should look like.
+
+**How this works:**
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/90427972/148665723-056fa536-4baa-4512-8047-2d14d2013801.png)
