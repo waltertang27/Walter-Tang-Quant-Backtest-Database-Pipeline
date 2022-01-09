@@ -34,3 +34,9 @@ So in Postman, I run the POST method (using url + /list), which adds the informa
 So when I run GET, you can see that it displays the listing that I just added.
 
 ![image](https://user-images.githubusercontent.com/90427972/148665756-9c63bf12-845e-4dc8-b707-0248e7b26738.png)
+
+**Updated database**
+In the database, the values have been added into the "listings" database. (previous one was prices in which we pulled APPL with 1 hour granularity from 12/01/2021 to 12/30/2021.
+
+![image](https://user-images.githubusercontent.com/90427972/148665933-91a58a6d-3a84-4358-83bf-721c489a57d8.png)
+
