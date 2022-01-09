@@ -9,16 +9,16 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 
-    #importing the polygon client
+#importing the polygon client. 
+# reads the data into a csv file (in this case, APPL wit one hour timespan from 12/1/2021 to 12/30/2021)
 key = "ozggTSfotBRqphmVTTL3tpakMp07rHMl"
 client = RESTClient(key)
 response = client.stocks_equities_aggregates('AAPL', multiplier = 1, timespan = 'hour', from_ = '2021-12-01', to = '2021-12-30')
 data_frame = pd.DataFrame(response.results)
-    #print(data_frame)
+#name of csv file to be created
 data_frame.to_csv('data/APPL.csv')
 password = "password"
 engine = create_engine('postgresql://postgres:{}@localhost/Project_Data'.format(password))
-#temp_data = 'backtest-database-pipeline'
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MOOIFICATIONS'] = False
@@ -27,7 +27,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhos
 db = SQLAlchemy(app)
 
 
-
+#creates the data table and sends it into the database
 def create_table(symbol):
     df = pd.read_csv('{}/{}.csv'.format('data', symbol))
     #v,vw,o,c,h,l,t,n   
@@ -37,9 +37,10 @@ def create_table(symbol):
 
     df.to_sql('prices', engine, if_exists = 'replace', index = False)
 
-
+#creates table for APPL csv file
 create_table('APPL')
 
+#class for intializing object for webserver
 class listing(db.Model):
     __tablename__ = 'listings'
     v = db.Column(db.Float(), primary_key = True)
@@ -68,7 +69,9 @@ def test():
     return {
         'test': 'testing'
     }
+#put link that is given in postman, then add /list at the end
 @app.route('/list', methods = ['GET'])
+#get method; returns the current listings in the database
 def getList():
     temp = listing.query.all()
     output = []
@@ -84,13 +87,12 @@ def getList():
         curList['n'] = i.n
         output.append(curList)
     return jsonify(output)
+#post method, adds a listing into database
 @app.route('/list', methods = ['POST'])
 def postList():
     listData = request.get_json()
     listData['t'] = pd.to_datetime(listData['t'])
     x = listing(v = listData['v'], vw = listData['vw'], o = listData['o'], c = listData['c'], h = listData['h'], l = listData['l'], t = listData['t'], n = listData['n'])
-    #x = listing(listData['v'], listData['vw'], listData['o'], listData['c'], listData['h'], listData['l'], listData['t'], listData['n'])
-    #print(listData[0])
     db.session.add(x)
     db.session.commit()
     return jsonify(listData)
