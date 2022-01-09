@@ -26,10 +26,12 @@ For the webserver, I connected Flask with a separate database (can add to previo
 So in Postman, I run the POST method (using url + /list), which adds the information that I entered into the new database.
 
 **URL generation**
+generating the URL when I run the code
 ![image](https://user-images.githubusercontent.com/90427972/148665838-135bdfb8-98e2-4f83-a43e-11b91fed4ecd.png)
 
 
 **Webserver post**
+adding values into database using POST method. Note: Needs to have body param in raw JSON format.
 ![image](https://user-images.githubusercontent.com/90427972/148665723-056fa536-4baa-4512-8047-2d14d2013801.png)
 
 **Webserver get**
